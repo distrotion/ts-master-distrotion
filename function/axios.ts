@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function post(url: string, body: any): Promise<any> {
+export async function axiospost(url: string, body: any): Promise<any> {
   let output: any;
   await axios.post(url, body)
     .then(async (res) => {
@@ -13,7 +13,7 @@ export async function post(url: string, body: any): Promise<any> {
   return output;
 };
 
-export async function get(url: string): Promise<any> {
+export async function axiosget(url: string): Promise<any> {
   let output: any;
   await axios.get(url)
     .then(async (res) => {

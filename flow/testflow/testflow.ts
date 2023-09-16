@@ -1,8 +1,10 @@
 import express from "express";
 import { Router } from "express";
 // import mssql from "../../function/mssql";
-import { mssqlquery } from "../../function/mssql" ;
-import {mongodbinsertMany ,mongodbfind,mongodbfindsome ,mongodbupdate} from "../../function/mongodb";
+import { mssqlquery } from "../../function/mssql";
+import { mongodbinsertMany, mongodbfind, mongodbfindsome, mongodbupdate } from "../../function/mongodb";
+// import {axiospost,axiosget} from "../../function/axios";
+import axios from 'axios';
 
 const router: Router = express.Router();
 
@@ -43,9 +45,25 @@ router.post('/mongotest', async (req, res) => {
   // var output = await mongodb.insertMany("test","doc01",[{"data":2,"test":"haha"}]);
   // var output = await mongodb.find("test","doc01",{"data":2});
   // var upd = await mongodb.update("test", "doc01", { "data": 2 }, { $set: { b: 777 } });
-  var output = await mongodbfind("LIMinstrument", "BALANCEdataSLUDGE", { });
+  var output = await mongodbfind("LIMinstrument", "BALANCEdataSLUDGE", {});
   return res.json(output)
 })
+
+router.post('/axios', async (req, res) => {
+
+  //  let  output =  axiosget('https://google.com"');
+  let output = {};
+  await axios.get("https://google.com")
+    .then(async (res) => {
+      output = res.data;
+      
+    })
+    .catch(async (error) => {
+      console.log(error.response.status);
+      // output = await error.response.status;
+    });
+    return res.json(output)
+});
 
 
 export default router;
