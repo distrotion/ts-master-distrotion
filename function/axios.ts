@@ -25,3 +25,4 @@ export const get = async (url: string): Promise<any> => {
     });
   return output;
 };
+

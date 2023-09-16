@@ -1,10 +1,10 @@
 import * as sql from 'mssql';
 
 const config: sql.config = {
-  user: "",
-  password: "",
+  user: "sa",
+  password: "Automatic",
   database: "",
-  server: '',
+  server: '172.23.10.51',
   pool: {
     // max: 10,
     // min: 0,
@@ -16,19 +16,21 @@ const config: sql.config = {
   }
 }
 
-export const query = async (input: string) => {
+export async function  query(input: string)  {
   try {
     // await sql.connect(config);
+    let output
     await sql.connect(config)
    .then((conn) => 
       conn.query(input)
          .then((v:any) => {
           console.log(v)
-
-          return v;
+          output = v
+         
          })
          .then(() => conn.close())
    )
+   return output
     // const result = await sql.query(input).then((v: any) => {
     //     // console.log(`---------------`);
     //     // console.log(v);  
