@@ -16,7 +16,7 @@ const config: sql.config = {
   }
 }
 
-export async function  query(input: string)  {
+export async function  mssqlquery(input: string)  {
   try {
     // await sql.connect(config);
     let output

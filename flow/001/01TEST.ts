@@ -1,7 +1,7 @@
 import express from "express";
 import { Router } from "express";
 // import mssql from "../../function/mssql";
-import { query } from "../../function/mssql";
+// import { mssqlquery } from "../../function/mssql";
 // let mssql = require('../../function/mssql');
 // import mongodb from "../../function/mongodb";
 // import httpreq from "../../function/axios";

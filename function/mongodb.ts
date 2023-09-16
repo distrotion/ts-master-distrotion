@@ -1,8 +1,8 @@
 import { MongoClient } from 'mongodb';
 
-const url = 'mongodb://172.23.10.73:27017';
+const url = 'mongodb://172.23.10.39:12120';
 
-export const insertMany = async (db_input: string, collection_input: string, input: any[]) => {
+export async function  mongodbinsertMany(db_input: string, collection_input: string, input: any[])  {
   const client = new MongoClient(url);
   await client.connect();
   const db = client.db(db_input);
@@ -12,7 +12,7 @@ export const insertMany = async (db_input: string, collection_input: string, inp
   return res;
 };
 
-export const find = async (db_input: string, collection_input: string, input: any) => {
+export async function  mongodbfind  (db_input: string, collection_input: string, input: any) {
   const client = new MongoClient(url);
   await client.connect();
   const db = client.db(db_input);
@@ -22,7 +22,7 @@ export const find = async (db_input: string, collection_input: string, input: an
   return res;
 };
 
-export const findsome = async (db_input: string, collection_input: string, input: any) => {
+export async function  mongodbfindsome  (db_input: string, collection_input: string, input: any)  {
   const client = new MongoClient(url);
   await client.connect();
   const db = client.db(db_input);
@@ -32,7 +32,7 @@ export const findsome = async (db_input: string, collection_input: string, input
   return res;
 };
 
-export const update = async (db_input: string, collection_input: string, input1: any, input2: any) => {
+export async function  mongodbupdate  (db_input: string, collection_input: string, input1: any, input2: any)  {
   const client = new MongoClient(url);
   await client.connect();
   const db = client.db(db_input);
